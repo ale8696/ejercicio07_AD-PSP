@@ -3,12 +3,14 @@ package salesianos.dam.ejercicio07.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @NoArgsConstructor @AllArgsConstructor @Builder
 @Getter @Setter
-public class Playlist {
+public class Playlist implements Serializable {
 
     @Id
     @GeneratedValue
@@ -18,7 +20,8 @@ public class Playlist {
     @Lob
     private String description;
 
-    @OneToMany
-    private List<AddedTo> addedTo;
+    @Builder.Default
+    @OneToMany(mappedBy = "playlist")
+    private List<AddedTo> addedTo = new ArrayList<>();
 
 }

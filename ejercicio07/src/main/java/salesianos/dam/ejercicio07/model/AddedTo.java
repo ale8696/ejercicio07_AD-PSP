@@ -11,7 +11,7 @@ public class AddedTo {
 
     @Builder.Default
     @EmbeddedId
-    private AddedToPK adededToPK = new AddedToPK();
+    private AddedToPK id = new AddedToPK();
 
     @ManyToOne
     @MapsId("song_id")
@@ -27,10 +27,24 @@ public class AddedTo {
     private int order;
 
     //HELPERS
-
-    public void addSong(Song s) {
+    public void addToSong(Song s) {
         song = s;
         s.getAddedTo().add(this);
+    }
+
+    public void removeFromSong(Song s) {
+        s.getAddedTo().remove(this);
+        song = null;
+    }
+
+    public void addToPlaylist(Playlist p) {
+        playlist = p;
+        p.getAddedTo().add(this);
+    }
+
+    public void removeFromPlaylist(Playlist p) {
+        p.getAddedTo().remove(this);
+        playlist = null;
     }
 
 }

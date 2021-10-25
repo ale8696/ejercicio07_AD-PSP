@@ -14,7 +14,7 @@
 	<name>ejercicio07</name>
 	<description>Ejercicio numero 7 del tema 2 de AD-PSP</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
